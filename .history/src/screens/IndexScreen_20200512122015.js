@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
 import { Context as BlogContext } from '../contexts/BlogContext';
 
 const IndexScreen = () => {
-  const { state, addBlogPost } = useContext(BlogContext);
+  const { data, addBlogPost } = useContext(BlogContext);
 
   return (
     <View>
