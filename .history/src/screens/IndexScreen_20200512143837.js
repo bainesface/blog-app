@@ -25,7 +25,9 @@ const IndexScreen = ({ navigation }) => {
               onPress={() => navigation.navigate('Show', { id: item.id })}
             >
               <View style={styles.blogPostContainer}>
-                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.title}>
+                  {item.title} - {item.id}
+                </Text>
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                   <Entypo style={styles.icon} name="trash" />
                 </TouchableOpacity>

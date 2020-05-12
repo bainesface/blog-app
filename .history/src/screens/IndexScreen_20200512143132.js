@@ -21,11 +21,11 @@ const IndexScreen = ({ navigation }) => {
         keyExtractor={(blog) => blog.id.toString()}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Show', { id: item.id })}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate('Show')}>
               <View style={styles.blogPostContainer}>
-                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.title}>
+                  {item.title} - {item.id}
+                </Text>
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                   <Entypo style={styles.icon} name="trash" />
                 </TouchableOpacity>
