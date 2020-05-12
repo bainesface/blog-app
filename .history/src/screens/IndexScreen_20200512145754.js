@@ -11,11 +11,11 @@ import { Context as BlogContext } from '../contexts/BlogContext';
 import { Entypo } from '@expo/vector-icons';
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(BlogContext);
+  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
 
   return (
     <View>
-      <Button title="Add Post" onPress={() => navigation.navigate('Create')} />
+      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blog) => blog.id.toString()}
@@ -38,13 +38,9 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
-IndexScreen.navigationOptions = ({ navigation }) => {
+IndexScreen.navigationOptions = () => {
   return {
-    headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
-        <Entypo name="plus" style={styles.plus} />
-      </TouchableOpacity>
-    ),
+    headerRight: () => <Entypo name="plus" style={styles.plus} />,
   };
 };
 
@@ -67,7 +63,7 @@ const styles = StyleSheet.create({
   },
   plus: {
     fontSize: 30,
-    marginRight: 10,
+    marginRight: 30,
   },
 });
 

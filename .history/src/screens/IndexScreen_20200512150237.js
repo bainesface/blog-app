@@ -11,11 +11,11 @@ import { Context as BlogContext } from '../contexts/BlogContext';
 import { Entypo } from '@expo/vector-icons';
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(BlogContext);
+  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
 
   return (
     <View>
-      <Button title="Add Post" onPress={() => navigation.navigate('Create')} />
+      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blog) => blog.id.toString()}
