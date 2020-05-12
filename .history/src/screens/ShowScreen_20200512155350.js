@@ -4,10 +4,9 @@ import { Context } from '../contexts/BlogContext';
 import { Entypo } from '@expo/vector-icons';
 
 const ShowScreen = ({ navigation }) => {
+  const id = navigation.getParam('id');
   const { state } = useContext(Context);
-  const blogPost = state.find(
-    (blogPost) => blogPost.id === navigation.getParam('id')
-  );
+  const blogPost = state.find((blogPost) => blogPost.id === id);
 
   return (
     <View style={styles.container}>
@@ -20,11 +19,7 @@ const ShowScreen = ({ navigation }) => {
 ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('Edit', { id: navigation.getParam('id') })
-        }
-      >
+      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
         <Entypo name="edit" style={styles.edit} />
       </TouchableOpacity>
     ),

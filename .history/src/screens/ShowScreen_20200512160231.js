@@ -4,10 +4,9 @@ import { Context } from '../contexts/BlogContext';
 import { Entypo } from '@expo/vector-icons';
 
 const ShowScreen = ({ navigation }) => {
+  const id = navigation.getParam('id');
   const { state } = useContext(Context);
-  const blogPost = state.find(
-    (blogPost) => blogPost.id === navigation.getParam('id')
-  );
+  const blogPost = state.find((blogPost) => blogPost.id === id);
 
   return (
     <View style={styles.container}>

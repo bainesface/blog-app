@@ -1,0 +1,25 @@
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { Context } from '../contexts/BlogContext';
+
+const EditScreen = ({ navigation }) => {
+  const id = navigation.getParam('id');
+  console.log(id, 'id');
+  const { state } = useContext(Context);
+  const blogPost = state.find((blogPost) => blogPost.id === id);
+  console.log(blogPost);
+
+  return (
+    <View>
+      <Text>Edit Title</Text>
+      {/* <Text>{blogPost.title}</Text> */}
+      <TextInput />
+      <Text>Edit Content</Text>
+      <TextInput />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({});
+
+export default EditScreen;
