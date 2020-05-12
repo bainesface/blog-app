@@ -11,21 +11,21 @@ import { Context as BlogContext } from '../contexts/BlogContext';
 import { Entypo } from '@expo/vector-icons';
 
 const IndexScreen = () => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
+  const { state, addBlogPost } = useContext(BlogContext);
 
   return (
     <View>
       <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
-        keyExtractor={(blog) => blog.id.toString()}
+        keyExtractor={(blog) => blog.title}
         renderItem={({ item }) => {
           return (
             <View style={styles.blogPostContainer}>
               <Text style={styles.title}>
                 {item.title} - {item.id}
               </Text>
-              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+              <TouchableOpacity>
                 <Entypo style={styles.icon} name="trash" />
               </TouchableOpacity>
             </View>

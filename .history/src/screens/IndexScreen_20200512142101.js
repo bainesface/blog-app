@@ -18,7 +18,7 @@ const IndexScreen = () => {
       <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
-        keyExtractor={(blog) => blog.id.toString()}
+        keyExtractor={(blog) => blog.id}
         renderItem={({ item }) => {
           return (
             <View style={styles.blogPostContainer}>
