@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
-const Form = ({ type, initialValues, onSubmit }) => {
-  const [title, setTitle] = useState(initialValues.title);
-  const [content, setContent] = useState(initialValues.content);
+const Form = ({ type, blogTitle, blogContent, onSubmit }) => {
+  const [title, setTitle] = useState(blogTitle);
+  const [content, setContent] = useState(blogContent);
 
   return (
     <View style={styles.container}>

@@ -15,7 +15,10 @@ const blogReducer = (state, action) => {
       return state.filter((blog) => blog.id !== action.payload);
     case 'edit_blogpost':
       return state.map((blog) => {
-        return blog.id === action.payload.id ? action.payload : blog;
+        if (blog.id === action.payload.id) {
+          return action.payload;
+        }
+        return blog;
       });
     default:
       return state;
