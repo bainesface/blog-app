@@ -13,12 +13,7 @@ import { Entypo } from '@expo/vector-icons';
 const IndexScreen = ({ navigation }) => {
   const { state, deleteBlogPost, getBlogPosts } = useContext(BlogContext);
 
-  useEffect(() => {
-    getBlogPosts();
-    navigation.addListener('didFocus', () => {
-      getBlogPosts();
-    });
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <View>
