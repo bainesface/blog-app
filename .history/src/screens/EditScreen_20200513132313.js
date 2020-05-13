@@ -14,11 +14,7 @@ const EditScreen = ({ navigation }) => {
       id={id}
       blogTitle={blogPost.title}
       blogContent={blogPost.content}
-      onSubmit={(title, content) => {
-        editBlogPost(id, title, content, () => {
-          navigation.navigate('Index');
-        });
-      }}
+      action={editBlogPost}
     />
   );
 };

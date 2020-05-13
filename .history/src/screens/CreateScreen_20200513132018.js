@@ -6,19 +6,7 @@ import Form from '../components/Form';
 const CreateScreen = ({ navigation }) => {
   const { addBlogPost } = useContext(Context);
 
-  return (
-    <Form
-      type={'Enter'}
-      blogTitle={''}
-      blogContent={''}
-      action={addBlogPost}
-      onSubmit={(title, content) => {
-        addBlogPost(title, content, () => {
-          navigation.navigate('Index');
-        });
-      }}
-    />
-  );
+  return <Form blogTitle={''} blogContent={''} action={addBlogPost} />;
 };
 
 const styles = StyleSheet.create({

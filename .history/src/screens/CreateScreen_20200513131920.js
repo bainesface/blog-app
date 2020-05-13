@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import { Context } from '../contexts/BlogContext';
 import Form from '../components/Form';
 
@@ -8,15 +8,9 @@ const CreateScreen = ({ navigation }) => {
 
   return (
     <Form
-      type={'Enter'}
-      blogTitle={''}
-      blogContent={''}
+      blogTitle={'blogPost.title'}
+      blogContent={'blogPost.content'}
       action={addBlogPost}
-      onSubmit={(title, content) => {
-        addBlogPost(title, content, () => {
-          navigation.navigate('Index');
-        });
-      }}
     />
   );
 };
