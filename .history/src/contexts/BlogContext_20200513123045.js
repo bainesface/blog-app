@@ -15,7 +15,7 @@ const blogReducer = (state, action) => {
       return state.filter((blog) => blog.id !== action.payload);
     case 'edit_blogpost':
       return state.map((blog) => {
-        if (blog.id === action.payload.id) {
+        if (blog.id !== action.payload.id) {
           return {
             ...blog,
             title: action.payload.title,
@@ -23,6 +23,7 @@ const blogReducer = (state, action) => {
           };
         }
         return blog;
+        console.log(blog);
       });
     default:
       return state;

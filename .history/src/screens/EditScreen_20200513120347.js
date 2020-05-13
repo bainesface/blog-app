@@ -1,33 +1,22 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { Context } from '../contexts/BlogContext';
 
 const EditScreen = ({ navigation }) => {
   const id = navigation.getParam('id');
-  const { state, editBlogPost } = useContext(Context);
+  const { state } = useContext(Context);
   const blogPost = state.find((blogPost) => blogPost.id === id);
-
-  const [title, setTitle] = useState(blogPost.title);
-  const [content, setContent] = useState(blogPost.content);
 
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Edit Title - {navigation.getParam('id')}</Text>
-      <TextInput
-        value={title}
-        style={styles.inputBox}
-        onChangeText={(text) => setTitle(text)}
-      />
+      <TextInput value={blogPost.title} style={styles.inputBox} />
       <Text style={styles.label}>Edit Content</Text>
-      <TextInput
-        value={content}
-        style={styles.inputBox}
-        onChangeText={(text) => setContent(text)}
-      />
+      <TextInput value={blogPost.content} style={styles.inputBox} />
       <Button
         title="Edit Blog Post"
         onPress={() => {
-          editBlogPost(id, title, content, () => {
+          addBlogPost(title, content, () => {
             navigation.navigate('Index');
           });
         }}

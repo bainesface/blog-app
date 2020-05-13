@@ -23,6 +23,7 @@ const blogReducer = (state, action) => {
           };
         }
         return blog;
+        console.log(blog);
       });
     default:
       return state;
